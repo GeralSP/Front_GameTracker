@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import img1 from '../img/banner_1.jpg'
 import img2 from '../img/banner_6.jpg'
-import img3 from '../img/banner_3.jpg'
+import img3 from '../img/banner_5.jpg'
 import img4 from '../img/banner_4.jpg'
 import '../Componentes/css/Carrusel.css'
 

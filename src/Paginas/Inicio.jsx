@@ -56,7 +56,7 @@ const Inicio = () => {
                     setJuegos={setJuegos}
                 />
 
-                <Link>Explorar Mas</Link>
+                <Link to={'/Biblioteca'}>Explorar Mas</Link>
                 <div>
                     {juegos.length === 0 || !juegos ? 
                     (

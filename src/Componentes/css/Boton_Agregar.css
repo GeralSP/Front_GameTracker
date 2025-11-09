@@ -1,0 +1,31 @@
+.contenedor_boton_agregar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.contenedor_boton_agregar > a {
+  pointer-events: auto; 
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--color_3);
+  border: var(--borde_1);
+  filter: var(--sombra_2);
+  transition: .3s;
+}
+
+.contenedor_boton_agregar > a:hover{
+  filter: var(--sombra_1);
+}
+
+.contenedor_boton_agregar > a > p {
+  font-size: 60px;
+  color: var(--color_2);
+  cursor: pointer;
+}
