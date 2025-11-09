@@ -1,12 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import '../Componentes/css/Encabezado.css'
 
 const Encabezado = () => {
     return(
-        <div>
-            <img src="" alt="" />
-            <Link to={'/'}>Inicio</Link>
-            <Link to={'/Biblioteca'}>Biblioteca</Link>
+        <div className="contenedor_encabezado">
+            <p>GameTracker</p>
+            
+            <div>
+                <Link to={'/'}>Inicio</Link>
+                <Link to={'/Biblioteca'}>Biblioteca</Link>
+            </div>
         </div>
     )
 }

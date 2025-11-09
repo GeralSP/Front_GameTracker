@@ -1,0 +1,22 @@
+.contenedor_carrusel{
+    width: 80%;
+    min-width: 200px;
+    height: 90vh;
+    min-height: 200px;
+    border-radius: 20px;
+    border: var(--borde_1);
+    filter: var(--sombra_2);
+    overflow: hidden;
+}
+
+.carrusel_inicio{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.caja_imagen_carrusel > img{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
