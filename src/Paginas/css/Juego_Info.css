@@ -1,0 +1,43 @@
+.contenedor_juego_info{
+    width: 100%;
+    height: fit-content;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.contenedor_juego_info > a{
+    width: 90%;
+    text-align: start;
+    font-size: 20px;
+    color: white;
+    filter: var(--sombra_1);
+}
+
+.contenedor_juego_info > :last-child{
+    margin: 40px;
+    width: 80%;
+    height: fit-content;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.contenedor_juego_info > :last-child > h1{
+    margin-top: 50px;
+    color: white;
+    filter: var(--sombra_2);
+}
+
+.contenedor_juego_info > :last-child > h3{
+    margin-top: 50px;
+    color: white;
+    filter: var(--sombra_2);
+    cursor: pointer;
+}

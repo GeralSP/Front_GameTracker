@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import '../Componentes/css/Tarjeta_Juego.css'
 import { Link } from "react-router-dom";
 
-const Tarjeta_Juego = ({imagen, nombre, puntuacion, estado,horas_jugadas, tipos_juego}) => {
+const Tarjeta_Juego = ({imagen, nombre, puntuacion, estado,horas_jugadas, tipos_juego, id_juego}) => {
 
     const [oculto, setOculto] = useState(false)
 
@@ -45,7 +45,7 @@ const Tarjeta_Juego = ({imagen, nombre, puntuacion, estado,horas_jugadas, tipos_
                 )}
             </div>
 
-            <Link>Ver más</Link>
+            <Link to={`/Juego/${id_juego}`}>Ver más</Link>
         </div>
     )
 }

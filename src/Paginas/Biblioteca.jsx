@@ -71,6 +71,7 @@ const Biblioteca = () => {
                                     estado={j.juego.estado}
                                     horas_jugadas={j.juego.horas_jugadas}
                                     tipos_juego={j.tipos_juego}
+                                    id_juego={j.juego._id}
                                 />
                             ))}
                         </>
@@ -86,6 +87,7 @@ const Biblioteca = () => {
                                     estado={j.juego.estado}
                                     horas_jugadas={j.juego.horas_jugadas}
                                     tipos_juego={j.tipos_juego}
+                                    id_juego={j.juego._id}
                                 />
                             ))}
                         </>

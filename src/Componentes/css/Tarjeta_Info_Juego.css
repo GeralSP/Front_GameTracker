@@ -1,0 +1,73 @@
+.contenedor_tarjeta_info_juego{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.contenedor_tarjeta_info_juego > div{
+    color: white;
+    background-color: var(--color_4);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 20px;
+    border: var(--borde_1);
+    border-radius: 10px;
+}
+
+.contenedor_tarjeta_info_juego > div > img{
+    width: 500px;
+    min-width: 200px;
+    height: 600px;
+    min-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.contenedor_tarjeta_info_juego > div > div{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.contenedor_tarjeta_info_juego > div > div > h1{
+    width: 100%;
+    text-align: center;
+    font-size: 35px;
+}
+
+.contenedor_tarjeta_info_juego > div > div > :nth-child(2){
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contenedor_tarjeta_info_juego > div > div > :nth-child(3){
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.contenedor_tarjeta_info_juego > div > div > :nth-child(3) > p{
+    color: var(--color_3);
+    border: var(--borde_1);
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.contenedor_tarjeta_info_juego > a{
+    font-size: 20px;
+    background-color: var(--color_3);
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 10px;
+}

@@ -1,0 +1,73 @@
+.contenedor_tarjeta_resena{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.contenedor_tarjeta_resena > :nth-child(1){
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: var(--borde_1);
+    filter: var(--sombra_2);
+}
+
+.contenedor_tarjeta_resena > :nth-child(1) > :nth-child(1){
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+    border-bottom: var(--borde_1);
+}
+
+.contenedor_tarjeta_resena > :nth-child(1) > p{
+    width: 90%;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.contenedor_tarjeta_resena > :nth-child(2){
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+}
+
+.contenedor_tarjeta_resena > :nth-child(2) > :nth-child(1){
+    font-size: 20px;
+    background-color: var(--color_3);
+    width: fit-content;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.contenedor_tarjeta_resena > :nth-child(2) > :nth-child(2){
+    width: fit-content;
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+    background-color: var(--color_1);
+    border: var(--borde_1);
+    filter: var(--sombra_2);
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.contenedor_tarjeta_resena > :nth-child(2) > :nth-child(2):hover{
+    filter: var(--sombra_1);
+}

@@ -1,0 +1,52 @@
+.contenedor_formu_resenas{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.contenedor_formu_resenas > div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.contenedor_formu_resenas > div > label{
+    width: 100%;
+    color: white;
+    font-size: 20px;
+}
+
+.contenedor_formu_resenas > div > input,
+.contenedor_formu_resenas > div > textarea{
+    width: 100%;
+    padding: 5px;
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+    background-color: var(--color_1);
+    border: var(--borde_1);
+    filter: var(--sombra_2);
+}
+
+.contenedor_formu_resenas > button{
+    width: fit-content;
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+    background-color: var(--color_1);
+    border: var(--borde_1);
+    filter: var(--sombra_2);
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.contenedor_formu_resenas > button:hover{
+    filter: var(--sombra_1);
+}
