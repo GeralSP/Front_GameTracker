@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import '../Componentes/css/Formu_Agregar_Juego.css'
 
 const Formu_Agregar_Juego = () => {
 
     const navigate = useNavigate()
 
-    const [imagen_url, setImagen_url] = useState('')
+    const [imagen_url, setImagen_url] = useState('https://media.vandal.net/m/23246/resident-evil-4-ultimate-hd-edition-20143116718_1.jpg')
     const [nombre, setNombre] = useState('')
     const [estado, setEstado] = useState('')
     const [puntuacion, setPuntuacion] = useState(1)
@@ -79,50 +80,79 @@ const Formu_Agregar_Juego = () => {
     }
 
     return(
-        <div>
+        <div className="contenedor_formu_agregar_juego">
             <h1>Agregar Juego</h1>
 
-            <form action="" onSubmit={Agregar_Juego}>
-                <input type="text" value={imagen_url} onChange={(e) => setImagen_url(e.target.value)} placeholder="Imagen URL" required/>
+            <div>
+                <img src={imagen_url} alt="" />
 
-                <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" required/>
+                <form action="" onSubmit={Agregar_Juego}>
+                    <div>
+                        <label htmlFor="">Imagen URL</label>
 
-                <select name="" id="" value={estado} onChange={(e) => setEstado(e.target.value)}>
-                    <option value="" hidden>Seleccion el estado</option>
-                    <option value="no terminado">No Terminado</option>
-                    <option value="terminado">Terminado</option>
-                </select>
+                        <input type="text" value={imagen_url} onChange={(e) => setImagen_url(e.target.value)} placeholder="Imagen URL" required/>
+                    </div>
 
-                <select name="" id="" value={puntuacion} onChange={(e) => setPuntuacion(Number((e.target.value)))}>
-                    <option value="" hidden>Puntuacion...</option>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                    <option value={4}>4</option>
-                    <option value={5}>5</option>
-                </select>
+                    <div>
+                        <label htmlFor="">Nombre</label>
 
-                <h3>{Array(puntuacion).fill("★").join("")}</h3>
+                        <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" required/>
+                    </div>
 
-                <input type="number" value={horas_jugadas} onChange={(e) => setHoras_jugadas(e.target.value)} placeholder="Horas Jugadas"/>
+                    <div>
+                        <label htmlFor="">Estado</label>
 
-                <h3>Tipo de Juego</h3>
-                <div>
-                    {tipo_juego_seleccionado.map((t) => (
-                        <p key={t.id}>{t.nombre} <span onClick={() => Quitar_Seleccionado(t.id)}>X</span></p>
-                    ))}
-                </div>
+                        <select name="" id="" value={estado} onChange={(e) => setEstado(e.target.value)}>
+                            <option value="" hidden>Seleccion el estado</option>
+                            <option value="no terminado">No Terminado</option>
+                            <option value="terminado">Terminado</option>
+                        </select>
+                    </div>
 
-                <hr />
+                    <div>
+                        <label htmlFor="">Puntuacion</label>
 
-                <div>
-                    {tipo_juego.map((t) => (
-                        <p key={t._id} onClick={() => Agregar(t._id, t.nombre_tipo)}>{t.nombre_tipo}</p>
-                    ))}
-                </div>
+                        <select name="" id="" value={puntuacion} onChange={(e) => setPuntuacion(Number((e.target.value)))}>
+                            <option value="" hidden>Puntuacion...</option>
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                            <option value={5}>5</option>
+                        </select>
 
-                <button type="submit">Enviar</button>
-            </form>
+                        <h1>
+                            {"★".repeat(Number(puntuacion))}
+                            {"☆".repeat(5 - Number(puntuacion))}    
+                        </h1>
+                    </div>
+
+                    <div>
+                        <label htmlFor="">Horas Jugadas</label>
+
+                        <input type="number" value={horas_jugadas} onChange={(e) => setHoras_jugadas(e.target.value)} placeholder="Horas Jugadas"/>
+                    </div>
+
+                    <div>
+                        <label htmlFor="">Tipo de Juego</label>
+                        <div>
+                            {tipo_juego_seleccionado.map((t) => (
+                                <p key={t.id}>{t.nombre} <span onClick={() => Quitar_Seleccionado(t.id)}>X</span></p>
+                            ))}
+                        </div>
+                    </div>
+
+                    <button type="submit">Agregar</button>
+                </form>
+            </div>
+
+            <h2>Tipo de Juego</h2>
+
+            <div>
+                {tipo_juego.map((t) => (
+                    <p key={t._id} onClick={() => Agregar(t._id, t.nombre_tipo)}>{t.nombre_tipo}</p>
+                ))}
+            </div>
         </div>
     )
 }

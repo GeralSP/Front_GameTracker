@@ -20,6 +20,7 @@
     width: 100%;
     color: white;
     font-size: 20px;
+    filter: var(--sombra_2);
 }
 
 .contenedor_formu_resenas > div > input,

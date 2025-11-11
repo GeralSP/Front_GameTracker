@@ -1,8 +1,37 @@
 import React, {useEffect, useState} from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../Componentes/css/Tarjeta_Info_Juego.css'
 
 const Tarjeta_Info_Juego = ({info_juego}) => {
+
+    const navigate = useNavigate()
+
+    const Eliminar_Juego = async (id_juego) => {
+        const confirmar = confirm('¿De verdad quieres eliminar este juego?')
+        if(!confirmar) return
+        
+        try{
+            const res = await fetch('http://localhost:3001/eliminar_juego', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({id_juego})
+            })
+
+            const respuesta = await res.json()
+
+            if(!respuesta.success){
+                return alert('No se pudo aliminar el juego')
+            }
+
+            alert('¡Juego Eliminado de tu Biblioteca')
+            navigate('/Biblioteca')
+        }
+        catch(error){
+            console.error('Error: ' + error)
+        }
+    }
 
     return(
         <div className="contenedor_tarjeta_info_juego">
@@ -32,6 +61,7 @@ const Tarjeta_Info_Juego = ({info_juego}) => {
                     </div>
 
                     <Link>Editar Informacion</Link>
+                    <button onClick={() => Eliminar_Juego(info_juego.juego._id)}>Eliminar Juego</button>
                 </>
             )}
         </div>

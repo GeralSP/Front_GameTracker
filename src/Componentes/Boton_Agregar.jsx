@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Boton_Agregar = () => {
     return(
         <div className="contenedor_boton_agregar">
-            <Link>
+            <Link to={'/Agregar_Juego'}>
                 <p>+</p>
             </Link>
         </div>
