@@ -1,6 +1,6 @@
 import React from "react";
 import '../Componentes/css/Tarjeta_Resena.css'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Tarjeta_Resena = ({info_juego}) => {
 
@@ -56,7 +56,7 @@ const Tarjeta_Resena = ({info_juego}) => {
                     </div>
 
                     <div>
-                        <button>Editar</button>
+                        <Link to={`/Editar_Reseña/${r._id}`}>Editar</Link>
                         <button onClick={() => Eliminar_Reserva(r._id)}>Eliminar</button>
                     </div>
                 </div>

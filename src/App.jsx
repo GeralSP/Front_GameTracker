@@ -4,6 +4,7 @@ import Inicio from "./Paginas/Inicio";
 import Biblioteca from "./Paginas/Biblioteca";
 import Juego_Info from "./Paginas/Juego_Info";
 import Registro_Juegos from "./Paginas/Registro_Juegos";
+import Editar_Resena from "./Paginas/Editar_Resena";
 
 const App = () => {
   return(
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/Biblioteca" element={<Biblioteca/>}/>
         <Route path="/Juego/:id_juego" element={<Juego_Info/>}/>
         <Route path="/Agregar_Juego" element={<Registro_Juegos/>}/>
+        <Route path="/Editar_Reseña/:id_resena" element={<Editar_Resena/>}/>
       </Routes>
     </BrowserRouter>
   )
