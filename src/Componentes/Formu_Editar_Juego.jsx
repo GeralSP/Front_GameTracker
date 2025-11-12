@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-import '../Componentes/css/Formu_Agregar_Juego.css'
+import { useNavigate, useParams } from "react-router-dom";
 
-const Formu_Agregar_Juego = () => {
+const Formu_Editar_Juego = () => {
 
     const navigate = useNavigate()
 
-    const [imagen_url, setImagen_url] = useState('https://media.vandal.net/m/23246/resident-evil-4-ultimate-hd-edition-20143116718_1.jpg')
+    const id_juego = useParams().id_juego
+    
+    const [imagen_url, setImagen_url] = useState('')
     const [nombre, setNombre] = useState('')
     const [estado, setEstado] = useState('')
     const [puntuacion, setPuntuacion] = useState(1)
@@ -16,6 +17,41 @@ const Formu_Agregar_Juego = () => {
     const [tipo_juego_seleccionado, setTipo_juego_seleccionado] = useState([])
 
     useEffect(() => {
+        //Obtener los datos a editar
+        const Obtener_Juego_Id = async () => {
+            try{
+                const res = await fetch('http://localhost:3001/obtener_juego_id', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({id_juego})
+                })
+
+                const datos = await res.json()
+
+                setImagen_url(datos.data.juego.imagen_url)
+                setNombre(datos.data.juego.nombre)
+                setEstado(datos.data.juego.estado)
+                setPuntuacion(datos.data.juego.puntuacion)
+                setHoras_jugadas(datos.data.juego.horas_jugadas)
+                
+                let array_tipo_juego = datos.data.tipos
+
+                const tiposSeleccionados = array_tipo_juego.map(t => ({
+                    id: t.id_tipo_juego._id,
+                    nombre: t.id_tipo_juego.nombre_tipo
+                }))
+                setTipo_juego_seleccionado(tiposSeleccionados)
+                setId_tipo_juego(tiposSeleccionados.map(t => t.id))
+            }
+            catch(error){
+                console.error('Error: ' + error)
+            }
+        }
+        Obtener_Juego_Id()
+
+        //Obtener los tipos de juegos
         const Obtener_Tipo_Juego = async () => {
             try{
                 const res = await fetch('http://localhost:3001/obtener_tipos_juegos')
@@ -30,26 +66,29 @@ const Formu_Agregar_Juego = () => {
         Obtener_Tipo_Juego()
     }, [])
 
-    const Agregar_Juego = async (e) => {
+    const Editar_Juego = async (e) => {
         e.preventDefault()
 
+        const confirmar = confirm('¿Quieres editar este juego?')
+        if(!confirmar) return
+
         try{
-            const res = await fetch('http://localhost:3001/agregar_juego', {
-                method: 'POST',
+            const res = await fetch('http://localhost:3001/editar_juego', {
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({imagen_url, nombre, estado, puntuacion, horas_jugadas, id_tipo_juego})
+                body: JSON.stringify({id_juego, imagen_url, nombre, estado, puntuacion, horas_jugadas, id_tipo_juego})
             })
 
             const respuesta = await res.json()
 
             if(!respuesta.success){
-                alert('No se puedo agregar el juego a tu biblioteca')
+                alert('No se puedo editar el juego')
             }
 
-            alert('Juego agregado correctamente')
-            navigate(0)
+            alert('Juego editado correctamente')
+            navigate(`/Juego/${id_juego}`)
 
         }
         catch(error){
@@ -85,12 +124,12 @@ const Formu_Agregar_Juego = () => {
 
     return(
         <div className="contenedor_formu_agregar_juego">
-            <h1>Agregar Juego</h1>
+            <h1>Editar Juego</h1>
 
             <div>
-                <img src={imagen_url} alt="" />
+                {imagen_url && <img src={imagen_url} alt="Imagen del juego" />}
 
-                <form action="" onSubmit={Agregar_Juego}>
+                <form action="" onSubmit={Editar_Juego}>
                     <div>
                         <label htmlFor="">Imagen URL</label>
 
@@ -100,13 +139,13 @@ const Formu_Agregar_Juego = () => {
                     <div>
                         <label htmlFor="">Nombre</label>
 
-                        <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" required/>
+                        <input type="text" value={nombre || ''} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" required/>
                     </div>
 
                     <div>
                         <label htmlFor="">Estado</label>
 
-                        <select name="" id="" value={estado} onChange={(e) => setEstado(e.target.value)}>
+                        <select name="" id="" value={estado || ''} onChange={(e) => setEstado(e.target.value)}>
                             <option value="" hidden>Seleccion el estado</option>
                             <option value="no terminado">No Terminado</option>
                             <option value="terminado">Terminado</option>
@@ -146,7 +185,8 @@ const Formu_Agregar_Juego = () => {
                         </div>
                     </div>
 
-                    <button type="submit">Agregar</button>
+                    <button type="submit">Editar</button>
+                    <button type="button">Cancelar</button>
                 </form>
             </div>
 
@@ -161,4 +201,4 @@ const Formu_Agregar_Juego = () => {
     )
 }
 
-export default Formu_Agregar_Juego
+export default Formu_Editar_Juego

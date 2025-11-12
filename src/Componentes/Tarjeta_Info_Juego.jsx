@@ -60,7 +60,7 @@ const Tarjeta_Info_Juego = ({info_juego}) => {
                         </div>
                     </div>
 
-                    <Link>Editar Informacion</Link>
+                    <Link to={`/Editar_Juego/${info_juego.juego._id}`}>Editar Informacion</Link>
                     <button onClick={() => Eliminar_Juego(info_juego.juego._id)}>Eliminar Juego</button>
                 </>
             )}
