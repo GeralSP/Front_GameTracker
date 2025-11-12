@@ -186,7 +186,6 @@ const Formu_Editar_Juego = () => {
                     </div>
 
                     <button type="submit">Editar</button>
-                    <button type="button">Cancelar</button>
                 </form>
             </div>
 

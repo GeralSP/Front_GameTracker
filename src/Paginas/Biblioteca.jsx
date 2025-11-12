@@ -6,6 +6,7 @@ import Tarjeta_Juego from "../Componentes/Tarjeta_Juego";
 import Filtrar_Estado_Juego from "../Componentes/Filtrar_Estado_Juego";
 import Filtrar_Tipo_Juego from "../Componentes/Filtrar_Tipo_Juego";
 import Boton_Agregar from "../Componentes/Boton_Agregar";
+import Filtrar_Puntuacion_Juego from "../Componentes/Filtrar_Puntuacion_Juego";
 
 const Biblioteca = () => {
 
@@ -54,6 +55,9 @@ const Biblioteca = () => {
                         setJuegos={setJuegos}
                     />
                     <Filtrar_Tipo_Juego
+                        setJuegos={setJuegos}
+                    />
+                    <Filtrar_Puntuacion_Juego
                         setJuegos={setJuegos}
                     />
                 </div>
