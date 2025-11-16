@@ -3,11 +3,13 @@ import '../Componentes/css/Filtros.css'
 
 const Filtrar_Estado_Juego = ({setJuegos}) => {
 
+    // --- Hook o funcion para modificar estados ---
     const [estado, setEstado] = useState('')
 
     const Filtrar_Estado = async (e) => {
         e.preventDefault()
         try{
+            // --- Hacer la peticion al backend ---
             const res = await fetch('http://localhost:3001/filtrar_estado', {
                 method: 'POST',
                 headers: {
@@ -16,8 +18,14 @@ const Filtrar_Estado_Juego = ({setJuegos}) => {
                 body: JSON.stringify({estado})
             })
 
+            // --- Convertir la respuesta obtenida en un json ---
             const respuesta = await res.json()
 
+             if(respuesta.data.length === 0){
+                return alert('No hay Juegos con este estado')
+            }
+
+             // --- maperar la informacion para hacer un nuevo objeto mas limpio ---
             const juegos_detalles = respuesta.data.map(j => ({
                 juego: j.juego,
                 tipos_juego: j.tipos

@@ -12,6 +12,7 @@ const Juego_Info = () => {
 
     const [info_juego, setInfo_juego] = useState('')
 
+    // ----------- funcion para obtener la informacion de un juego por su id -----------
     useEffect(() => {
         const Obtener_Juego_Id = async () => {
             try{

@@ -12,6 +12,7 @@ const Formu_Editar_Resena = () => {
     const [descripcion, setDescripcion] = useState('')
     const [id_juego, setId_juego] = useState('')
 
+    // ----------- funcion para obtener los datos de una reseña apenas se cargue la pagina -----------
     useEffect(() => {
         const Obtener_Resena = async () => {
             try{
@@ -37,6 +38,7 @@ const Formu_Editar_Resena = () => {
         Obtener_Resena()
     }, [])
 
+    // ----------- funcion para editar la reseña -----------
     const Editar_Resena = async (e) => {
         e.preventDefault()
 

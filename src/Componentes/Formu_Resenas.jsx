@@ -9,6 +9,7 @@ const Formu_Resenas = ({id_juego}) => {
     const [nombre_autor, setNombre_autor] = useState('Autor_Anonimo')
     const [descripcion, setDescripcion] = useState('')
 
+    // ----------- funcion para subir una reseña -----------
     const Subir_Resena = async (e) => {
         e.preventDefault()
 

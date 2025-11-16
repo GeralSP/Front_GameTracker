@@ -14,6 +14,7 @@ const Tarjeta_Resena = ({info_juego}) => {
         return <h2>No hay reseñas</h2>
     }
 
+    // ----------- funcion para eliminar una reseña -----------
     const Eliminar_Reserva = async (id_resena) => {
         const confirmar = confirm('¿De verdad quieres eliminar esta reseña?')
         if(!confirmar) return

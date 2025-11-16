@@ -5,6 +5,7 @@ const Filtrar_Puntuacion_Juego = ({setJuegos}) => {
 
     const [puntuacion, setPuntuacion] = useState('')
 
+    // ----------- funcion para buscar un juego por su puntuacion -----------
     const Filtrar_Puntuacion = async (e) => {
         e.preventDefault()
         

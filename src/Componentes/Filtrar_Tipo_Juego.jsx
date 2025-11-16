@@ -5,6 +5,7 @@ const Filtrar_Tipo_Juego = ({setJuegos}) => {
 
     const [id_tipo_juego, setId_tipo_juego] = useState('')
 
+    // ----------- funcion para buscar un juego por su tipo de juego -----------
     const Filtrar_Tipo = async (e) => {
         e.preventDefault()
 

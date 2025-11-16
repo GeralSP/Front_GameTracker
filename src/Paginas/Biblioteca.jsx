@@ -12,7 +12,7 @@ const Biblioteca = () => {
 
     const [juegos_cargados, setJuegos_cargados] = useState([])
 
-    //Traer todos los juegos
+    // ----------- funcion para listar todos los juegos apenas se cargue la pagina -----------
     useEffect(() => {
         const Obtener_Juegos = async () => {
             try{
@@ -35,7 +35,7 @@ const Biblioteca = () => {
     }, [])
 
 
-    //Resultados de la busqueda o filtros
+    // --- Resultados de la busqueda o filtros ---
     const [juegos, setJuegos] = useState([])
 
     return(
@@ -63,6 +63,7 @@ const Biblioteca = () => {
                 </div>
 
                 <div>
+                    {/* --- Mapear los juegos --- */}
                     {juegos.length === 0 || !juegos ? 
                     (
                         <>

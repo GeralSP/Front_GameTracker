@@ -10,6 +10,7 @@ import '../Componentes/css/Carrusel.css'
 
 const Carrusel = () => {
 
+    // --- Array de las imagenes del carrusel ---
     const imagenes = [
         img1, img2, img3, img4
     ]
@@ -30,6 +31,7 @@ const Carrusel = () => {
     return(
         <div className="contenedor_carrusel">
             <Slider {...settings} className="carrusel_inicio">
+                {/* --- Mapear las imagenes del carrusel --- */}
                 {imagenes.map((i) => (
                     <div className="caja_imagen_carrusel">
                         <img src={i} alt="" />                 

@@ -6,6 +6,7 @@ const Tarjeta_Info_Juego = ({info_juego}) => {
 
     const navigate = useNavigate()
 
+    // ----------- funcion para eliminar un juego -----------
     const Eliminar_Juego = async (id_juego) => {
         const confirmar = confirm('¿De verdad quieres eliminar este juego?')
         if(!confirmar) return

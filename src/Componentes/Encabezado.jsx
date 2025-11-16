@@ -7,6 +7,7 @@ const Encabezado = () => {
         <div className="contenedor_encabezado">
             <p>GameTracker</p>
             
+            {/* --- "Link" es como un "a" de html puro */}
             <div>
                 <Link to={'/'}>Inicio</Link>
                 <Link to={'/Biblioteca'}>Biblioteca</Link>

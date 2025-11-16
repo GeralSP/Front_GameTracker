@@ -11,7 +11,7 @@ const Inicio = () => {
 
     const [juegos_cargados, setJuegos_cargados] = useState([])
 
-    //Traer 3 juegos apenas de cargue la pagina
+    // ----------- funcion para obtener 3 juegos aleatorias apenas se cargue la pagina -----------
     useEffect(() => {
         const Obtener_Juegos = async () => {
             try{
@@ -61,6 +61,7 @@ const Inicio = () => {
 
                 <Link to={'/Biblioteca'}>Explorar Mas</Link>
                 <div>
+                    {/* --- Mapear los juegos --- */}
                     {juegos.length === 0 || !juegos ? 
                     (
                         <>

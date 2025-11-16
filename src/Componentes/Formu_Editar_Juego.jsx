@@ -16,6 +16,8 @@ const Formu_Editar_Juego = () => {
     const [tipo_juego, setTipo_juego] = useState([])
     const [tipo_juego_seleccionado, setTipo_juego_seleccionado] = useState([])
 
+
+    // ----------- Listar los datos del juego apenas cargue la pagina -----------
     useEffect(() => {
         //Obtener los datos a editar
         const Obtener_Juego_Id = async () => {
@@ -66,6 +68,8 @@ const Formu_Editar_Juego = () => {
         Obtener_Tipo_Juego()
     }, [])
 
+
+    // ----------- funcion para editar el juego -----------
     const Editar_Juego = async (e) => {
         e.preventDefault()
 
@@ -96,6 +100,7 @@ const Formu_Editar_Juego = () => {
         }
     }
 
+    // ----------- funcion para agregar tipos de juegos al formulario -----------
     const Agregar = (id_tipo_juego, nombre) => {
         let id_nombre = {
             id: id_tipo_juego,
@@ -114,6 +119,7 @@ const Formu_Editar_Juego = () => {
         })
     }
 
+    // ----------- funcion para quitar los tipos de juegos del formulario -----------
     const Quitar_Seleccionado = (id) => {
         setTipo_juego_seleccionado(prev => {
             const nuevoArray = prev.filter(item => item.id !== id)

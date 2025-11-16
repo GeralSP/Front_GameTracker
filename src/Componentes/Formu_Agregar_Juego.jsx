@@ -15,6 +15,8 @@ const Formu_Agregar_Juego = () => {
     const [tipo_juego, setTipo_juego] = useState([])
     const [tipo_juego_seleccionado, setTipo_juego_seleccionado] = useState([])
 
+
+    // ----------- Cargar los tipos de juegos desde un principio -----------
     useEffect(() => {
         const Obtener_Tipo_Juego = async () => {
             try{
@@ -30,6 +32,8 @@ const Formu_Agregar_Juego = () => {
         Obtener_Tipo_Juego()
     }, [])
 
+
+    // ----------- funcion para vrear o agregar juegos a la biblioteca -----------
     const Agregar_Juego = async (e) => {
         e.preventDefault()
 
@@ -57,6 +61,7 @@ const Formu_Agregar_Juego = () => {
         }
     }
 
+    // ----------- funcion para agregar los tipos de juegos al formulario -----------
     const Agregar = (id_tipo_juego, nombre) => {
         let id_nombre = {
             id: id_tipo_juego,
@@ -75,6 +80,7 @@ const Formu_Agregar_Juego = () => {
         })
     }
 
+    // ----------- funcion para quitar los tipos de juegos del formulario -----------
     const Quitar_Seleccionado = (id) => {
         setTipo_juego_seleccionado(prev => {
             const nuevoArray = prev.filter(item => item.id !== id)
