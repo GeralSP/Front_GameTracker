@@ -11,12 +11,8 @@ const Tarjeta_Info_Juego = ({info_juego}) => {
         if(!confirmar) return
         
         try{
-            const res = await fetch('http://localhost:3001/eliminar_juego', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({id_juego})
+            const res = await fetch(`http://localhost:3001/eliminar_juego/${id_juego}`, {
+                method: 'DELETE',
             })
 
             const respuesta = await res.json()
@@ -25,7 +21,7 @@ const Tarjeta_Info_Juego = ({info_juego}) => {
                 return alert('No se pudo aliminar el juego')
             }
 
-            alert('¡Juego Eliminado de tu Biblioteca')
+            alert('¡Juego Eliminado de tu Biblioteca!')
             navigate('/Biblioteca')
         }
         catch(error){

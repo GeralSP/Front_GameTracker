@@ -19,12 +19,8 @@ const Tarjeta_Resena = ({info_juego}) => {
         if(!confirmar) return
         
         try{
-            const res = await fetch('http://localhost:3001/eliminar_resena', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({id_resena})
+            const res = await fetch(`http://localhost:3001/eliminar_resena/${id_resena}`, {
+                method: 'DELETE'
             })
 
             const respuesta = await res.json()

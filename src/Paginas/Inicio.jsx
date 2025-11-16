@@ -19,6 +19,9 @@ const Inicio = () => {
                 const datos = await res.json()
 
                 let cantidad = datos.data.length
+
+                if(cantidad.length === 0) return
+
                 let indices_random = []
 
                 while (indices_random.length < 3) {
